@@ -6,6 +6,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Login from "./Login";
+import Search from "./Search/Search";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,6 +17,9 @@ function App() {
         <div>
           <LinkContainer to="/login">
             <a>Log in</a>
+          </LinkContainer>{" "}
+          <LinkContainer to="/search">
+            <a>Search</a>
           </LinkContainer>
         </div>
         <Routes>
@@ -24,6 +28,7 @@ function App() {
             path="/login"
             element={<Login setLoggedIn={setLoggedIn} />}
           ></Route>
+          <Route path="/search" element={<Search />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
