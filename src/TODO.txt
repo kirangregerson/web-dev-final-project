@@ -1,0 +1,18 @@
+TODO:
+
+SUSTAINABILITY:
+    - Ensure container sizings are correct for every window size
+    - Ensure all pages have the same size layout for common elements (e.g. navigation bar, logo, etc.)
+
+HOME PAGE:
+    - General
+        - Tidy things up
+            - Color pallet
+            - Styling
+            - Search bar at top?
+            - NavBar
+    - Item Carousel
+        - Consider making images link to product pages
+
+DATABASE:
+    - Product items/IDs

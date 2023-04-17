@@ -15,17 +15,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <div>
-          <LinkContainer to="/login">
-            <a>Log in</a>
-          </LinkContainer>{" "}
-          <LinkContainer to="/search">
-            <a>Search</a>
-          </LinkContainer>{" "}
-          <LinkContainer to="/home">
-            <a>Home</a>
-          </LinkContainer>
-        </div>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route index path="/home" element={<Home />}></Route>
