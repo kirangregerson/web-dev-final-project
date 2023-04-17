@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../StoreService";
+import { getProducts } from "../Services/StoreService";
 import SearchItem from "./SearchItem";
 
 const Search = () => {

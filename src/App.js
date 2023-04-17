@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Login from "./Login";
 import Search from "./Search/Search";
+import Home from "./Home/Home";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -20,10 +21,14 @@ function App() {
           </LinkContainer>{" "}
           <LinkContainer to="/search">
             <a>Search</a>
+          </LinkContainer>{" "}
+          <LinkContainer to="/home">
+            <a>Home</a>
           </LinkContainer>
         </div>
         <Routes>
-          <Route index path="/"></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route index path="/home" element={<Home />}></Route>
           <Route
             path="/login"
             element={<Login setLoggedIn={setLoggedIn} />}
