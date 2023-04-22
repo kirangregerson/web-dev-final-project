@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBell,
@@ -7,6 +7,7 @@ import {
     faSearch,
     faUser
 } from "@fortawesome/free-solid-svg-icons";
+import useToken from "../Services/Token";
 
 // import "./Navigation-Sidebar.css";
 
@@ -15,6 +16,7 @@ const NavigationSidebar = (
         active = 'home'
     }
 ) => {
+    const { token, setToken } = useToken();
     return (
         <div className="list-group col-2">
             <a className={`list-group-item
@@ -40,7 +42,7 @@ const NavigationSidebar = (
             </a>
             <a className={`list-group-item
                 ${active === 'profile'?'active':''}`}
-               href="/profile">
+               href={token? ("/profile") : ("/login") }>
                 <FontAwesomeIcon icon={faUser} />
                 &nbsp;
                 Profile
