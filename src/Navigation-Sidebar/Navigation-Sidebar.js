@@ -12,9 +12,11 @@ import {
 
 const NavigationSidebar = (
     {
-        active = 'home'
+        active = 'home',
     }
 ) => {
+    const loggedInStr = localStorage.getItem("loggedIn")
+    const loggedIn = JSON.parse(loggedInStr);
     return (
         <div className="list-group col-2">
             <a className={`list-group-item
@@ -40,7 +42,7 @@ const NavigationSidebar = (
             </a>
             <a className={`list-group-item
                 ${active === 'profile'?'active':''}`}
-               href="/profile">
+               href={loggedIn? ("/profile") : ("/login")}>
                 <FontAwesomeIcon icon={faUser} />
                 &nbsp;
                 Profile
