@@ -4,6 +4,7 @@ import { Carousel, CarouselItem } from "react-bootstrap";
 import "./Home.css";
 import ItemCarousel from "./Item-Carousel/Item-Carousel";
 import NavigationSidebar from "../Navigation-Sidebar/Navigation-Sidebar";
+import ProfileWidget from "../Profile/Profile-Widget";
 
 const Home = () => {
   return (
@@ -30,6 +31,9 @@ const Home = () => {
               <section>
                   <h2>Popular accounts:</h2>
               </section>
+          </div>
+          <div className="col-2">
+              <ProfileWidget/>
           </div>
       </div>
   );

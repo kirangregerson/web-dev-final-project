@@ -15,6 +15,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   //JSON stringify is needed to serialize value before storing. This is reversed at use time.
   localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+  localStorage.setItem("username", null);
 
   return (
     <BrowserRouter>

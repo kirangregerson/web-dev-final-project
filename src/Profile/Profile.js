@@ -1,12 +1,14 @@
 import NavigationSidebar from "../Navigation-Sidebar/Navigation-Sidebar";
 
 const Profile = () => {
+    const username = localStorage.getItem("username");
+
     return (
         <div className="container">
             <div className="row">
-                <NavigationSidebar active={"home"}/>
-                <div className="col-8">
-                    <h1>Welcome top your profile!</h1>
+                <NavigationSidebar active={"profile"}/>
+                <div className="col-8 justify-content-center">
+                    <h1>{username}'s Profile</h1>
                 </div>
             </div>
         </div>

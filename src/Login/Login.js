@@ -22,6 +22,7 @@ const Login = ({ setLoggedIn }) => {
     if (loginRes.status === 200) {
       console.log("SUCCESS!")
       localStorage.setItem("loggedIn", JSON.stringify(true));
+      localStorage.setItem("username", username);
       navigate("/");
     }
   };
