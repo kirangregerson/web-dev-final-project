@@ -8,14 +8,15 @@ import useToken from "../Services/Token";
 import axios from "axios";
 
 async function loginUser(credentials) {
-    const res = await axios.post('/user', {
+    const res = await axios.post(`${process.env.REACT_APP_API_BASE}/login`, {
         username: credentials.username,
         password: credentials.password,
     });
     console.log(res);
 }
 
-export default function Login({ setToken }) {
+// export default function Login({ setToken }) {
+export default function Login() {
 
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -26,7 +27,8 @@ export default function Login({ setToken }) {
             username,
             password
         });
-        setToken(token);
+        console.log(token);
+        // setToken(token);
     }
 
     return(
@@ -47,8 +49,4 @@ export default function Login({ setToken }) {
             </form>
         </div>
     )
-}
-
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
 }

@@ -16,7 +16,7 @@ const NavigationSidebar = (
         active = 'home'
     }
 ) => {
-    const { token, setToken } = useToken();
+    const { loggedIn, setLoggedIn } = useState(false);
     return (
         <div className="list-group col-2">
             <a className={`list-group-item
@@ -42,7 +42,7 @@ const NavigationSidebar = (
             </a>
             <a className={`list-group-item
                 ${active === 'profile'?'active':''}`}
-               href={token? ("/profile") : ("/login") }>
+               href={loggedIn? ("/profile") : ("/login") }>
                 <FontAwesomeIcon icon={faUser} />
                 &nbsp;
                 Profile
