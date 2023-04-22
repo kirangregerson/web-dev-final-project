@@ -9,7 +9,13 @@ export const getProducts = async () => {
   const products = await axios.get(
     `${process.env.REACT_APP_API_BASE}/api/etsy/products`
   );
-  console.log(products);
+  return products;
+};
+
+export const searchForItem = async (searchQuery, index) => {
+  const products = await axios.get(
+    `${process.env.REACT_APP_API_BASE}/api/etsy/products?searchQuery=${searchQuery}&offset=${index}`
+  );
   return products;
 };
 

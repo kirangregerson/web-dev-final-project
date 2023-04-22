@@ -12,8 +12,6 @@ export const createCommentForItem = async (itemId, comment, rating) => {
     `${process.env.REACT_APP_API_BASE}/api/item/${itemId}/comments`,
     { comment, rating }
   );
-  console.log("test");
-  console.log(createdItem);
   return createdItem;
 };
 
