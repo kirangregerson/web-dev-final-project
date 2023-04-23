@@ -11,6 +11,7 @@ import Home from "./Home/Home";
 import Details from "./Details/Details";
 import NavigationSidebar from "./Navigation-Sidebar/Navigation-Sidebar";
 import Profile from "./Profile/Profile";
+import ROProfile from "./Profile/RO-Profile";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/search/:searchTerm" element={<Search />}></Route>
           <Route path="/details/:productId" element={<Details />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/profile/:profileId" element={<ROProfile />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
