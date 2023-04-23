@@ -13,3 +13,11 @@ export const getRoProfile = async (profileId) => {
         {params: {_id: profileId, isFullProfile: false}}
     );
 }
+
+export async function updateUser(username, update) {
+    const response = await axios.put(
+        `${process.env.REACT_APP_API_BASE}/api/update`,
+        { username: username, update: update }
+    );
+    return response;
+}
