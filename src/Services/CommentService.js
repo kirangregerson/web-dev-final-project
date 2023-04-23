@@ -34,3 +34,10 @@ export const deleteComment = async (commentId) => {
   );
   return deletedComment;
 };
+
+export const getUserComments = async () => {
+  const comments = await api.get(
+    `${process.env.REACT_APP_API_BASE}/api/comments/current`
+  );
+  return comments;
+};
