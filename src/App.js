@@ -3,6 +3,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 import Login from "./Login/Login";
 import Search from "./Search/Search";
@@ -16,11 +17,8 @@ function App() {
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    console.log(username === null);
     if (username === null) {
       //JSON stringify is needed to serialize value before storing. This is reversed at use time.
-      localStorage.setItem("loggedIn", false);
-      localStorage.setItem("username", null);
     } else {
       localStorage.setItem("loggedIn", true);
     }

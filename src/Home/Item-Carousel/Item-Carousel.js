@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { getRecentlyViewed } from "../../Services/SavedService";
 
 const ItemCarousel = ({ items }) => {
+  console.log("items:");
+  console.log(items);
   function tripleUp(items) {
     if (!items) {
       return [];
@@ -29,13 +31,15 @@ const ItemCarousel = ({ items }) => {
                   {triple.map((item) => {
                     return (
                       <div className="col-4">
-                        <img
-                          className="col-12"
-                          src={item.image}
-                          title={item.title}
-                          alt={item.title}
-                          style={{ maxHeight: "250px" }}
-                        ></img>
+                        <a href={`/item/${item.productId}`}>
+                          <img
+                            className="col-12"
+                            src={item.imageUrl}
+                            title={item.title}
+                            alt={item.title}
+                            style={{ maxHeight: "250px" }}
+                          ></img>
+                        </a>
                       </div>
                     );
                   })}

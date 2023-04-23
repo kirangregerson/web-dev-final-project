@@ -23,7 +23,10 @@ const Comment = ({ comment }) => {
               ></img>
             </div>
             <div className="d-flex justify-content-center">
-              <a href="#" className="text-decoration-none">
+              <a
+                href={`/profile/${comment.commenterId}`}
+                className="text-decoration-none"
+              >
                 {comment.username}
               </a>
             </div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { render } from "react-dom";
 import Login from "../Login";
 import { useNavigate } from "react-router";
+import { registerUser } from "../../Services/LoginService";
 
 const Register = ({ setShowRegister }) => {
   const navigate = useNavigate();
@@ -10,10 +11,8 @@ const Register = ({ setShowRegister }) => {
   const [password, setPassword] = useState("");
 
   const handleRegistration = async () => {
-    const registerRes = await axios.post(
-      `${process.env.REACT_APP_API_BASE}/api/register`,
-      { username: username, password: password }
-    );
+    const registerRes = registerUser(username, password);
+
     console.log(registerRes);
     const domNode = document.getElementById("root");
     //render(<Login />, domNode);

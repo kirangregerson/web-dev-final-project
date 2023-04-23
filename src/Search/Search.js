@@ -24,6 +24,7 @@ const Search = () => {
   }, [index]);
 
   async function submitSearch() {
+    console.log("searching");
     const { data } = await searchForItem(searchTarget, index);
     setIndex(0);
     setItems(data);
@@ -38,10 +39,6 @@ const Search = () => {
   async function decrementIndex() {
     setIndex(index - 1);
     navigate(`/search/${searchTarget}?index=${index - 1}`);
-  }
-
-  function submitSearch() {
-    console.log(searchTarget);
   }
 
   return (

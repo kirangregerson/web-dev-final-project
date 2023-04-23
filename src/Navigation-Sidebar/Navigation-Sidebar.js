@@ -17,7 +17,7 @@ const NavigationSidebar = ({ active = "home" }) => {
 
   async function logOut() {
     localStorage.clear();
-    axios.post(`${process.env.REACT_APP_API_BASE}/api/logout`);
+    logOut();
   }
 
   return (
