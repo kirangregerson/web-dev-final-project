@@ -37,7 +37,7 @@ const Profile = () => {
         <NavigationSidebar active={"profile"} />
         <div className="col-8 justify-content-center">
           <h1>{username}'s Profile</h1>
-          <img src={profile.image ? profile.image : "dummyprofile.png"}></img>
+          <img width={100} height={100} className="rounded-circle" src={profile.image ? profile.image : "dummyprofile.png"}></img>
           <ProfileComments commentIds={profile.comments} />
           <ProfileLikeds likeds={profile.liked} />
           <ProfileWishlist wishlist={profile.wishlist} />
