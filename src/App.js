@@ -9,7 +9,6 @@ import Login from "./Login/Login";
 import Search from "./Search/Search";
 import Home from "./Home/Home";
 import Details from "./Details/Details";
-import NavigationSidebar from "./Navigation-Sidebar/Navigation-Sidebar";
 import Profile from "./Profile/Profile";
 import ROProfile from "./Profile/RO-Profile";
 
@@ -27,7 +26,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App container">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route index path="/home" element={<Home />}></Route>

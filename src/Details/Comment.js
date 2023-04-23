@@ -18,7 +18,7 @@ const Comment = ({ comment, setCommentsRendered }) => {
   }
 
   return (
-    <div key={comment._id} className="list-group-item">
+    <div key={comment._id} className="list-group-item col-12">
       <div className="row">
         <div className="col-2">
           <span>
@@ -52,7 +52,7 @@ const Comment = ({ comment, setCommentsRendered }) => {
           {comment.rating && <div className="">Rating: {comment.rating}/5</div>}
 
           <div className="d-flex justify-content-around">
-            {role === "buyer" && (
+            {/*role === "buyer" && (
               <>
                 <div>
                   Likes:
@@ -73,7 +73,7 @@ const Comment = ({ comment, setCommentsRendered }) => {
                   Reply
                 </button>
               </>
-            )}
+            )*/}
             {role === "moderator" && (
               <>
                 <div>
