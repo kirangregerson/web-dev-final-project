@@ -17,7 +17,7 @@ const NavigationSidebar = ({ active = "home" }) => {
 
   async function logOut() {
     localStorage.clear();
-    axios.post(`${process.env.REACT_APP_API_BASE}/api/logout`);
+    logOut();
   }
 
   return (
@@ -28,7 +28,7 @@ const NavigationSidebar = ({ active = "home" }) => {
         href="/home"
       >
         <FontAwesomeIcon icon={faHome} />
-        &nbsp; Home
+        <span className="d-none d-md-inline">&nbsp; Home</span>
       </a>
       <a
         className={`list-group-item
@@ -36,44 +36,41 @@ const NavigationSidebar = ({ active = "home" }) => {
         href="/search"
       >
         <FontAwesomeIcon icon={faSearch} />
-        &nbsp; Search
+        <span className="d-none d-md-inline">&nbsp; Search</span>
       </a>
-      <a
+      {/*<a
         className={`list-group-item
                 ${active === "notifications" ? "active" : ""}`}
         href="/notifications"
       >
         <FontAwesomeIcon icon={faBell} />
         &nbsp; Notifications
-      </a>
+  </a>*/}
       <a
         className={`list-group-item
                 ${active === "profile" ? "active" : ""}`}
         href={loggedIn ? "/profile" : "/login"}
       >
         <FontAwesomeIcon icon={faUser} />
-        &nbsp;
-        {loggedIn ? "Profile" : "Log in"}
+        <span className="d-none d-md-inline">
+          &nbsp;
+          {loggedIn ? "Profile" : "Log in"}
+        </span>
       </a>
       {loggedIn && (
-        <a
-          className={`list-group-item
-                ${active === "profile" ? "active" : ""}`}
-          onClick={logOut}
-          href="/"
-        >
+        <a className={`list-group-item`} onClick={logOut} href="/">
           <FontAwesomeIcon icon={faUser} />
-          &nbsp; Log out
+          <span className="d-none d-md-inline">&nbsp; Log out</span>
         </a>
       )}
-      <a
+      {/*<a
         className={`list-group-item
                 ${active === "more" ? "active" : ""}`}
         href="/more"
       >
         <FontAwesomeIcon icon={faEllipsisH} />
         &nbsp; More
-      </a>
+      </a>*/}
     </div>
   );
 };

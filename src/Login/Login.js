@@ -5,6 +5,7 @@ import Register from "./Register/Register";
 import * as root from "react-dom";
 import { render } from "react-dom";
 import { redirect, useNavigate } from "react-router";
+import { loginUser } from "../Services/LoginService";
 
 const Login = ({ setLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -15,15 +16,13 @@ const Login = ({ setLoggedIn }) => {
 
   const handleLogin = async () => {
     console.log("logging in...");
-    const loginRes = await axios.post(
-      `${process.env.REACT_APP_API_BASE}/api/login`,
-      { username: username, password: password }
-    );
+    const loginRes = await loginUser(username, password);
     console.log(loginRes);
     if (loginRes.status === 200) {
       console.log("SUCCESS!");
-      localStorage.setItem("loggedIn", JSON.stringify(true));
+      localStorage.setItem("loggedIn", true);
       localStorage.setItem("username", username);
+      localStorage.setItem("role", loginRes.data.role);
       navigate("/");
     }
   };

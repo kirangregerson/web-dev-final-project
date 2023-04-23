@@ -24,6 +24,7 @@ const Search = () => {
   }, [index]);
 
   async function submitSearch() {
+    console.log("searching");
     const { data } = await searchForItem(searchTarget, index);
     setIndex(0);
     setItems(data);
