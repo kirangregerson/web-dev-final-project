@@ -20,3 +20,17 @@ export const createCommentForItem = async (itemId, comment, rating) => {
 };
 
 export const likeComment = async (commentId, likeStatus) => {};
+
+export const getAllComments = async () => {
+  const comments = await api.get(
+    `${process.env.REACT_APP_API_BASE}/api/comments`
+  );
+  return comments;
+};
+
+export const deleteComment = async (commentId) => {
+  const deletedComment = await api.delete(
+    `${process.env.REACT_APP_API_BASE}/api/comments/${commentId}`
+  );
+  return deletedComment;
+};

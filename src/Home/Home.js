@@ -5,17 +5,19 @@ import NavigationSidebar from "../Navigation-Sidebar/Navigation-Sidebar";
 import ProfileWidget from "../Profile/Profile-Widget";
 import { getCurrentUser, getUsers } from "../Services/UsersService";
 import { getAllLikes } from "../Services/ProductService";
+import { getAllComments } from "../Services/CommentService";
+import Comment from "../Details/Comment";
 
 const Home = () => {
   const loggedIn = localStorage.getItem("loggedIn");
+  const role = localStorage.getItem("role");
   console.log("logged in:");
   console.log(loggedIn);
   const [yourLikedItems, setYourLikedItems] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [othersLikedItems, setOthersLikedItems] = useState([]);
-  const [mostLikedItems, setMostLikedItems] = useState([]);
-  console.log("wishlist");
-  console.log(wishlist);
+  const [comments, setComments] = useState([]);
+  const [commentsRendered, setCommentsRendered] = useState(false);
 
   useEffect(() => {
     getUsers().then(({ data }) => {
@@ -32,6 +34,15 @@ const Home = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (!commentsRendered) {
+      getAllComments().then(({ data }) => {
+        setComments(data);
+        setCommentsRendered(true);
+      });
+    }
+  }, [commentsRendered]);
+
   return (
     <div className="row">
       <NavigationSidebar active={"home"} />
@@ -44,7 +55,7 @@ const Home = () => {
           ></img>
         </div>
         {/* TODO: If logged in:*/}
-        {loggedIn && (
+        {loggedIn && role === "buyer" && (
           <div>
             <section>
               <h2>You've recently liked:</h2>
@@ -64,34 +75,44 @@ const Home = () => {
             </section>
           </div>
         )}
+        {loggedIn && role === "moderator" && (
+          <div>
+            <section>
+              <h2>Recently posted comments:</h2>
+              <div className="list-group">
+                {comments.map((comment) => {
+                  return (
+                    <div className="row">
+                      <Comment
+                        comment={comment}
+                        setCommentsRendered={setCommentsRendered}
+                      ></Comment>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          </div>
+        )}
         {/*TODO: If not logged in */}
         {(!loggedIn || loggedIn == "false") && (
           <div>
-            <section>
-              <h2> Other people have recently liked: </h2>
-            </section>
             <section>
               <img src="signupbanner.png" className="col-12"></img>
             </section>
           </div>
         )}
         {/*TODO: Generic content*/}
-        <section>
-          <h2>Other people have liked:</h2>
-          {othersLikedItems && othersLikedItems.length == 0 ? (
-            "Nobody has liked any items :("
-          ) : (
-            <ItemCarousel items={othersLikedItems} />
-          )}
-        </section>
-        <section>
-          <h2>Most liked items</h2>
-          {mostLikedItems.length == 0 ? (
-            "There are no liked items :("
-          ) : (
-            <ItemCarousel items={mostLikedItems} />
-          )}
-        </section>
+        {(!loggedIn || role === "buyer") && (
+          <section>
+            <h2>Other people have liked:</h2>
+            {othersLikedItems && othersLikedItems.length == 0 ? (
+              "Nobody has liked any items :("
+            ) : (
+              <ItemCarousel items={othersLikedItems} />
+            )}
+          </section>
+        )}
       </div>
       <div className="col-2">
         <ProfileWidget />

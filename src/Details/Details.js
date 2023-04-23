@@ -156,7 +156,11 @@ const Details = () => {
             ? "There are no comments for this product. Be the first to comment!"
             : false}
           {comments.map((comment) => (
-            <Comment key={comment._id} comment={comment} />
+            <Comment
+              key={comment._id}
+              comment={comment}
+              className={"list-group-item"}
+            />
           ))}
         </div>
       </div>

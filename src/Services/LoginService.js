@@ -4,10 +4,10 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export async function registerUser(username, password) {
+export async function registerUser(username, password, role) {
   const registerRes = await api.post(
     `${process.env.REACT_APP_API_BASE}/api/register`,
-    { username: username, password: password }
+    { username: username, password: password, role }
   );
   return registerRes;
 }
