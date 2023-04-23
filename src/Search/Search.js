@@ -42,46 +42,44 @@ const Search = () => {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <NavigationSidebar active="search" />
-        <div className="col-8">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search for an item"
-              onChange={(e) => {
-                setSearchTarget(e.target.value);
-              }}
-            ></input>
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                onClick={submitSearch}
-              >
-                Search
-              </button>
+    <div className="row">
+      <NavigationSidebar active="search" />
+      <div className="col-8">
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search for an item"
+            onChange={(e) => {
+              setSearchTarget(e.target.value);
+            }}
+          ></input>
+          <div className="input-group-append">
+            <button
+              className="btn btn-outline-secondary"
+              onClick={submitSearch}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+        {searchTerm && (
+          <div>
+            <ul className="list-group">
+              {items.map((item) => {
+                return (
+                  <SearchItem key={item.listing_id} item={item}></SearchItem>
+                );
+              })}
+            </ul>
+            <div>
+              {index > 0 && (
+                <button onClick={decrementIndex}>Previous page</button>
+              )}
+              <button onClick={incrementIndex}>Next page</button>
             </div>
           </div>
-          {searchTerm && (
-            <div>
-              <ul className="list-group">
-                {items.map((item) => {
-                  return (
-                    <SearchItem key={item.listing_id} item={item}></SearchItem>
-                  );
-                })}
-              </ul>
-              <div>
-                {index > 0 && (
-                  <button onClick={decrementIndex}>Previous page</button>
-                )}
-                <button onClick={incrementIndex}>Next page</button>
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

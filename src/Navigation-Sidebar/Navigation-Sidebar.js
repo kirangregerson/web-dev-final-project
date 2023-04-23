@@ -7,6 +7,7 @@ import {
   faHome,
   faSearch,
   faUser,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
 // import "./Navigation-Sidebar.css";
@@ -28,7 +29,7 @@ const NavigationSidebar = ({ active = "home" }) => {
         href="/home"
       >
         <FontAwesomeIcon icon={faHome} />
-        <span className="d-none d-md-inline">&nbsp; Home</span>
+        <span className="d-none d-lg-inline">&nbsp; Home</span>
       </a>
       <a
         className={`list-group-item
@@ -36,7 +37,7 @@ const NavigationSidebar = ({ active = "home" }) => {
         href="/search"
       >
         <FontAwesomeIcon icon={faSearch} />
-        <span className="d-none d-md-inline">&nbsp; Search</span>
+        <span className="d-none d-lg-inline">&nbsp; Search</span>
       </a>
       {/*<a
         className={`list-group-item
@@ -52,15 +53,15 @@ const NavigationSidebar = ({ active = "home" }) => {
         href={loggedIn ? "/profile" : "/login"}
       >
         <FontAwesomeIcon icon={faUser} />
-        <span className="d-none d-md-inline">
+        <span className="d-none d-lg-inline">
           &nbsp;
           {loggedIn ? "Profile" : "Log in"}
         </span>
       </a>
       {loggedIn && (
         <a className={`list-group-item`} onClick={logOut} href="/">
-          <FontAwesomeIcon icon={faUser} />
-          <span className="d-none d-md-inline">&nbsp; Log out</span>
+          <FontAwesomeIcon icon={faRightFromBracket} />
+          <span className="d-none d-lg-inline">&nbsp;Log out</span>
         </a>
       )}
       {/*<a
