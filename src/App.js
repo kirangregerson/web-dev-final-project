@@ -36,7 +36,7 @@ function App() {
           ></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/search/:searchTerm" element={<Search />}></Route>
-          <Route path="/item/:productId" element={<Details />}></Route>
+          <Route path="/details/:productId" element={<Details />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
         </Routes>
       </div>

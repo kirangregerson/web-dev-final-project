@@ -1,5 +1,5 @@
 const SearchItem = ({ item }) => {
-  const itemHref = `/item/${item["listing_id"]}`;
+  const itemHref = `/details/${item["listing_id"]}`;
   return (
     <a className="list-group-item" href={itemHref}>
       <li className="d-flex">

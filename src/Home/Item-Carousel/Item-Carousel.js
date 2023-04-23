@@ -31,7 +31,7 @@ const ItemCarousel = ({ items }) => {
                   {triple.map((item) => {
                     return (
                       <div className="col-4">
-                        <a href={`/item/${item.productId}`}>
+                        <a href={`/details/${item.productId}`}>
                           <img
                             className="col-12"
                             src={item.imageUrl}
