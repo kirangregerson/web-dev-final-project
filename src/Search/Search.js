@@ -40,6 +40,10 @@ const Search = () => {
     navigate(`/search/${searchTarget}?index=${index - 1}`);
   }
 
+  function submitSearch() {
+    console.log(searchTarget);
+  }
+
   return (
     <div className="container">
       <div className="row">
