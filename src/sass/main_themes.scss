@@ -4,11 +4,8 @@ $secondary:     #002626 !default;
 $light:         #305252 !default;
 $dark:          #ffffff !default;
 
-div {
-    background-color: #002626;
-    color: #ffffff;
-}
-
+$body-bg: #002626;
+$body-color: #ffffff;
 
 //Import default bootstraps to override
 @import '../../node_modules/bootstrap/scss/bootstrap';
