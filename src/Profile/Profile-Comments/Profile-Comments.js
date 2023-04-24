@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import ProfileComment from "./Profile-Comment";
 import { getUserComments } from "../../Services/CommentService";
 
-const ProfileComments = ({ commentIds = [] }) => {
+const ProfileComments = ({ username }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    getUserComments().then(({ data }) => {
+    getUserComments(username).then(({ data }) => {
       setComments(data);
     });
   }, []);

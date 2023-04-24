@@ -35,9 +35,9 @@ export const deleteComment = async (commentId) => {
   return deletedComment;
 };
 
-export const getUserComments = async () => {
+export const getUserComments = async (username) => {
   const comments = await api.get(
-    `${process.env.REACT_APP_API_BASE}/api/comments/current`
+    `${process.env.REACT_APP_API_BASE}/api/comments/${username}`
   );
   return comments;
 };
