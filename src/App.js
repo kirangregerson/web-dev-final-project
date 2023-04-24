@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import { LinkContainer } from "react-router-bootstrap";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/main_themes.min.css";
 import "./App.css";
 
 import Login from "./Login/Login";
