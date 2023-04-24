@@ -1,16 +1,21 @@
 import { deleteComment } from "../Services/CommentService";
+import { getUserByUsername } from "../Services/UsersService";
 import "./Comment.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Comment = ({ comment, setCommentsRendered }) => {
   const [likes, setLikes] = useState(comment.likes);
+  const [image, setImage] = useState("/dummyprofile.png");
   const role = localStorage.getItem("role");
-  function onLike() {
-    //likeComment().then(({ data }) => {});
-  }
-  function onReply() {
-    console.log(`replying to comment ${comment._id}`);
-  }
+
+  useEffect(() => {
+    console.log(comment);
+    getUserByUsername(comment.username).then(({ data }) => {
+      console.log("body");
+      console.log(data);
+      setImage(data.image);
+    });
+  }, []);
 
   async function removeComment() {
     await deleteComment(comment["_id"]);
@@ -20,12 +25,14 @@ const Comment = ({ comment, setCommentsRendered }) => {
   return (
     <div key={comment._id} className="list-group-item col-12">
       <div className="row">
-        <div className="col-2">
+        <div className="col-3 col-lg-2">
           <span>
             <div className="d-flex justify-content-center">
               <img
-                src={comment.profile_picture || "/dummyprofile.png"}
-                className="profile-image"
+                src={image}
+                className="profile-image rounded-circle"
+                width={100}
+                height={100}
                 title="profile picture"
               ></img>
             </div>
@@ -39,7 +46,7 @@ const Comment = ({ comment, setCommentsRendered }) => {
             </div>
           </span>
         </div>
-        <div className="col-10">
+        <div className="col-9 col-lg-10">
           <div className="comment-text position-relative">
             <div
               style={{

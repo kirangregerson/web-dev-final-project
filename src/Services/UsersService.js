@@ -32,8 +32,14 @@ export const addToWishlist = async (productId, image) => {
   }
 };
 
+export const getUserByUsername = async (username) => {
+  const user = await api.get(
+    `${process.env.REACT_APP_API_BASE}/api/users/${username}`
+  );
+  return user;
+};
+
 export const likeProduct = async (productId, image) => {
-  console.log("liking product");
   try {
     await api.put(`${process.env.REACT_APP_API_BASE}/api/users/current/liked`, {
       item: {
@@ -51,5 +57,13 @@ export const likeProduct = async (productId, image) => {
     }
   );
   console.log("like product successful");
+  return response;
+};
+
+export const changeEmail = async (email) => {
+  const response = await api.put(
+    `${process.env.REACT_APP_API_BASE}/api/users/email`,
+    { email }
+  );
   return response;
 };
